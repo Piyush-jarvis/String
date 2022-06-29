@@ -1,0 +1,22 @@
+void PrintSolution(int idx, string s, int length, char input[])
+{
+    if(idx == length)
+    {
+         cout << s << endl;
+         return;
+    }
+    PrintSolution(idx+1,s,length,input);
+    s.push_back(input[idx]);   
+    PrintSolution(idx+1,s,length,input);
+}
+
+void printSubsequences(char input[]) {
+    // Write your code here
+    int arrcount = 0;
+    while(input[arrcount] != '\0'){
+        arrcount++;
+    }
+    string s ;
+    PrintSolution(0, s, arrcount, input );
+
+}
