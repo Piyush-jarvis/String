@@ -1,0 +1,51 @@
+#include<iostream>
+using namespace std;
+/*
+PIYUSH 744499988777744
+*/
+string printSequence(string arr[],string input){
+    string output =" ";
+    int n = input.length();
+    for (int i = 0; i < n; i++)
+    {
+        if (input[i] == '0')
+        {
+            output = output + "0";
+        }
+        else{
+            int position = input[i] -'A';
+            output = output+arr[position];
+        }
+        
+    }
+    return output;
+}
+
+/*
+P=80
+A=65
+P-A = 16 and in the str array at 15 position we h "7" 
+like this the process keeps on going
+I-A = 8 and at this place in str array we have 444 so the output is 444
+and so on going .
+
+*/
+
+int main()
+{
+    // storing the sequence in array
+    string str[] = {"2","22","222",
+                    "3","33","333",
+                    "4","44","444",
+                    "5","55","555",
+                    "6","66","666",
+                    "7","77","777","7777",
+                    "8","88","888",
+                    "9","99","999","9999"
+                   };
+ 
+    string input = "PIYUSH";
+    cout<<input;
+    cout << printSequence(str, input);
+    return 0;
+}
