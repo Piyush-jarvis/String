@@ -1,0 +1,61 @@
+// { Driver Code Starts
+#include<bits/stdc++.h>
+using namespace std;
+
+
+ // } Driver Code Ends
+class Solution {
+  public:
+  
+  bool isPallindrome(string str, int start, int end)
+  {
+      while( start < end)
+      {
+          if(str[start] != str[end])
+          {
+              return false;
+          }
+          start ++;
+          end --;
+      }
+      return true;
+  }
+  
+    string longestPalin (string s) {
+        int n = s.length();
+        int maxlen = 0;
+        string ans = "";
+        if(n == 1)
+        {
+            return s;
+        }
+        for(int i = 0; i < n; i++)
+        {
+            for(int j = 0; j < n; j++)
+            {
+                if(isPallindrome(s,i,j)  && maxlen < (j-i+1))
+                {
+                    maxlen = j-i+1;
+                    ans = s.substr(i,j-i+1);
+                }
+            }
+        }
+        return ans;
+    }
+};
+
+// { Driver Code Starts.
+
+int main()
+{
+    int t; cin >> t;
+    while (t--)
+    {
+        string S; cin >> S;
+        
+        Solution ob;
+        cout << ob.longestPalin (S) << endl;
+    }
+}
+// Contributed By: Pranay Bansal
+  // } Driver Code Ends
