@@ -1,0 +1,26 @@
+class Solution {
+public:
+    
+    string solution(string res, string str)
+    {
+        string result;
+        for(int i = 0; i < min(res.length(),str.length()); i++)
+        {
+            if(res[i] == str[i])
+                result += res[i];
+            else
+                break;
+        }
+        return result;
+    }
+    
+    string longestCommonPrefix(vector<string>& strs) {
+        
+        string stringa = strs[0];
+        for(int i = 0; i < strs.size(); i++)
+        {
+            stringa = solution(stringa,strs[i]);
+        }
+        return stringa;
+    }
+};
