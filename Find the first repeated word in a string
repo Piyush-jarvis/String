@@ -1,0 +1,48 @@
+// Online C++ compiler to run C++ program online
+#include <iostream>
+#include <bits/stdc++.h>
+ using namespace std;
+ 
+ void solve(string str)
+ {
+     unordered_map<string, int>mpp;
+     string t ="", ans ="";
+     for(int i = str.length(); i >= 0; i--)
+     {
+        // if char present , then add that in temp word string t
+         if(str[i] != ' ')
+         {
+             t += str[i];
+         }
+         // if space is there then this word t needs to stored in map
+         else
+         {
+             mpp[t]++;
+              // if that string t has occurred previously then it is a possible ans
+             if(mpp[t] > 1)
+             {
+                 ans = t;
+             }
+              // set t as empty for again new word  
+             t ="";
+         }
+          // first word like "he" needs to be mapped
+          mpp[t]++;
+            if(mpp[t]>1)
+               ans=t;
+     }
+     if(ans != "")
+     {
+         reverse(ans.begin(),ans.end());
+         cout << "Ans Is: " << ans <<endl;
+     }
+     else
+	cout<<"No Repetition\n";
+ }
+
+int main() {
+    string u = "my name is piyush my surname is maheshwari";
+    solve(u);
+
+    return 0;
+}
